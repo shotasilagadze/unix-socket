@@ -20,7 +20,7 @@ int main() {
    //specify the address of the socket
    struct sockaddr_in server_address;
    server_address.sin_family = AF_INET;
-   server_address.sin_port = htons(51831);
+   server_address.sin_port = htons(5132);
    server_address.sin_addr.s_addr = INADDR_ANY;
 
 
@@ -46,6 +46,7 @@ int main() {
 
    //close socket
    close(netword_socket);
+   
 
    return 0;
 }
