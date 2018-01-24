@@ -38,11 +38,16 @@ int main() {
 
 
 	//bind the socket to particular inner address
-	bind(server_socket,(struct sockaddr *) &server_address,sizeof(server_address));
+	int bind_status = bind(server_socket,(struct sockaddr *) &server_address,sizeof(server_address));
+	if (bind_status != 0) {
+		printf("%s\n", "Bind error occured - ");
+		printf("%d\n",errno);
+	}
+
 
 	//listen for incoming requests for the server
 	listen(server_socket,5);
-
+	
 
 	//define the client socket we will accept
 	int client_socket;
