@@ -53,13 +53,10 @@ int main() {
 
 	while (1) {
 		client_socket = accept(server_socket,NULL,NULL);
-		send(client_socket,http_header,strlen(http_header),0);
+		send(client_socket,http_header,sizeof(http_header),0);
 
 		close(client_socket);
 		printf("%s\n","Request Received ! ! !");
-		printf("%d\n",strlen(http_header));
-		printf("%d\n",sizeof(http_header));
-		
 		printf("%s","Response sent -> ");
 		printf("%s\n",http_header);
 	}
