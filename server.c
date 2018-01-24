@@ -29,12 +29,12 @@ int main() {
 	// bind the socket to our specified address and port
 	int bind_status = bind(server_socket,(const struct sockaddr*) &server_address,sizeof(server_address));
 	if (bind_status!=0) {
-		printf("%s","connection error status - ");
-      	printf("%d\n",errno);
+		printf("error code - %d\n",bind_status);
+		return 0;
 	}
 
 	// listen
-	listen(server_socket, 5);
+	listen(server_socket, 27);
 
 
 	//define socket that requested us
@@ -44,8 +44,10 @@ int main() {
 	send(client_socket,server_message,sizeof(server_message),0);
 
 	//close the socket
+
+	close(client_socket);
 	close(server_socket);
-	close(server_socket);
+
 
 
 
