@@ -22,7 +22,7 @@ int main() {
 	char response_data[1024];
 	fgets(response_data,sizeof(response_data),html_data);
 
-	char http_header[2048] = "HTTP/1.1 200 OK\n";
+	char http_header[2048] = "HTTP/1.1 200 OK\r\n\n";
 	strcat((char *)http_header,(const char *)response_data);
 
 
