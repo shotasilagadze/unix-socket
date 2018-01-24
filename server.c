@@ -29,8 +29,8 @@ int main() {
 	// bind the socket to our specified address and port
 	int bind_status = bind(server_socket,(const struct sockaddr*) &server_address,sizeof(server_address));
 	if (bind_status!=0) {
-		printf("%d",bind_status);
-		return 0;
+		printf("%s","connection error status - ");
+      	printf("%d\n",errno);
 	}
 
 	// listen
