@@ -45,8 +45,8 @@ int main() {
 
 	//close the socket
 
-	close(client_socket);
 	close(server_socket);
+	close(client_socket)
 
 
 
