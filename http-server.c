@@ -29,7 +29,6 @@ int main() {
 	//create server socket
 	int server_socket = socket(AF_INET,SOCK_STREAM,0);
 
-
 	//define the address
 	struct sockaddr_in server_address;
 	server_address.sin_family = AF_INET;
@@ -47,17 +46,20 @@ int main() {
 
 	//listen for incoming requests for the server
 	listen(server_socket,5);
-	
+
 
 	//define the client socket we will accept
 	int client_socket;
-
-
 
 	while (1) {
 		client_socket = accept(server_socket,NULL,NULL);
 		send(client_socket,http_header,sizeof(http_header),0);
 		close(client_socket);
+		if (errno!=0) {
+			printf("%s\n", "Some error occured - ");
+			printf("%d\n",errno);		
+			return 0;
+		}
 	}
 
 
