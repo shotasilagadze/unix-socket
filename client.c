@@ -10,6 +10,8 @@
 //for closing connection
 #include <unistd.h>
 
+//for converting string ip to binary 
+#include <arpa/inet.h>
 
 int main() {
 
@@ -21,13 +23,15 @@ int main() {
    struct sockaddr_in server_address;
    server_address.sin_family = AF_INET;
    server_address.sin_port = htons(5132);
-   server_address.sin_addr.s_addr = INADDR_ANY;
+   inet_pton(AF_INET, "188.226.153.108", &server_address.sin_addr);
+   
 
 
    //connect 
    int connection_status = connect(netword_socket,(const struct sockaddr *) &server_address,sizeof(server_address));
+  
 
-
+   printf("%d",connection_status);
    //check for error with connection 
    if (connection_status == -1) {      
       printf("%s","connection error status - ");
@@ -46,7 +50,7 @@ int main() {
 
    //close socket
    close(netword_socket);
-   
+
 
    return 0;
 }

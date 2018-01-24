@@ -27,7 +27,11 @@ int main() {
 
 
 	// bind the socket to our specified address and port
-	bind(server_socket,(const struct sockaddr*) &server_address,sizeof(server_address));
+	int bind_status = bind(server_socket,(const struct sockaddr*) &server_address,sizeof(server_address));
+	if (bind_status!=0) {
+		printf("%d",bind_status);
+		return 0;
+	}
 
 	// listen
 	listen(server_socket, 5);
