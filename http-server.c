@@ -55,11 +55,7 @@ int main() {
 		client_socket = accept(server_socket,NULL,NULL);
 		send(client_socket,http_header,sizeof(http_header),0);
 		close(client_socket);
-		if (errno!=0) {
-			printf("%s\n", "Some error occured - ");
-			printf("%d\n",errno);		
-			return 0;
-		}
+		printf("%s\n","Request Received ! ! !");
 	}
 
 
