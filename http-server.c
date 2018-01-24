@@ -56,6 +56,8 @@ int main() {
 		send(client_socket,http_header,sizeof(http_header),0);
 		close(client_socket);
 		printf("%s\n","Request Received ! ! !");
+		printf("%s","Response sent -> ");
+		printf("%s\n",http_header);
 	}
 
 
