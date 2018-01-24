@@ -16,7 +16,7 @@ int main() {
 
 	//open the file to send to the client
 	FILE * html_data;
-	html_data = fopen("index.php","r");
+	html_data = fopen("index.html","r");
 
 
 	char response_data[1024];
