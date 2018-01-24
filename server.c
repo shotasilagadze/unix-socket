@@ -29,7 +29,7 @@ int main() {
 	// bind the socket to our specified address and port
 	int bind_status = bind(server_socket,(const struct sockaddr*) &server_address,sizeof(server_address));
 	if (bind_status!=0) {
-		printf("error code - %d\n",bind_status);
+		printf("error code - %d\n",errno);
 		return 0;
 	}
 
