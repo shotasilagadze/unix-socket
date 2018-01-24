@@ -44,10 +44,7 @@ int main() {
 	send(client_socket,server_message,sizeof(server_message),0);
 
 	//close the socket
-	usleep(500);
-	close(server_socket);
-	close(client_socket);
-
+	
 
 
 
