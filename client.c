@@ -31,7 +31,6 @@ int main() {
    int connection_status = connect(netword_socket,(const struct sockaddr *) &server_address,sizeof(server_address));
   
 
-   printf("%d",connection_status);
    //check for error with connection 
    if (connection_status == -1) {      
       printf("%s","connection error status - ");

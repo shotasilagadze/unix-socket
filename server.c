@@ -10,6 +10,10 @@
 //for closing connection
 #include <unistd.h>
 
+int z;
+int asd;
+int dsa[5];
+
 
 int main() { 
 
@@ -34,7 +38,7 @@ int main() {
 	}
 
 	// listen
-	listen(server_socket, 27);
+	listen(server_socket, 5);
 
 
 	//define socket that requested us
@@ -44,9 +48,11 @@ int main() {
 	send(client_socket,server_message,sizeof(server_message),0);
 
 	//close the socket
+	close(server_socket);
+	close(client_socket);
 	
 
 
 
 
-}
+s}
