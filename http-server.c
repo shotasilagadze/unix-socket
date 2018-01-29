@@ -51,14 +51,12 @@ int main() {
 	//define the client socket we will accept
 	int client_socket;
 
+	char received_message[2000];
+
 	while (1) {
 		client_socket = accept(server_socket,NULL,NULL);
-		send(client_socket,http_header,sizeof(http_header),0);
-
-		close(client_socket);
-		printf("%s\n","Request Received ! ! !");
-		printf("%s","Response sent -> ");
-		printf("%s\n",http_header);
+		recv(client_socket,received_message,2000,0);
+		printf("%s\n",received_message);
 	}
 
 
